@@ -16,7 +16,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+
+    
+    NSLog(@"拖延症和可怕，一低昂要改掉呀！");
+    
+    
+    NSLog(@"这个是一个测试pull request 的demo");
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
