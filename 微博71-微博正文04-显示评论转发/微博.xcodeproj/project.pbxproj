@@ -93,11 +93,6 @@
 		183E90451964EC6F0014BF21 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 183E90441964EC6F0014BF21 /* UIKit.framework */; };
 		183E904B1964EC6F0014BF21 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 183E90491964EC6F0014BF21 /* InfoPlist.strings */; };
 		183E90591964EC6F0014BF21 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 183E90581964EC6F0014BF21 /* Images.xcassets */; };
-		183E90601964EC700014BF21 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 183E905F1964EC700014BF21 /* XCTest.framework */; };
-		183E90611964EC700014BF21 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 183E90401964EC6F0014BF21 /* Foundation.framework */; };
-		183E90621964EC700014BF21 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 183E90441964EC6F0014BF21 /* UIKit.framework */; };
-		183E906A1964EC700014BF21 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 183E90681964EC700014BF21 /* InfoPlist.strings */; };
-		183E906C1964EC700014BF21 /* ____Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 183E906B1964EC700014BF21 /* ____Tests.m */; };
 		184D3E5C1973C02A00D3A79E /* HMStatusDetailFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 184D3E551973C02A00D3A79E /* HMStatusDetailFrame.m */; };
 		184D3E5D1973C02A00D3A79E /* HMStatusFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 184D3E571973C02A00D3A79E /* HMStatusFrame.m */; };
 		184D3E5E1973C02A00D3A79E /* HMStatusOriginalFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 184D3E591973C02A00D3A79E /* HMStatusOriginalFrame.m */; };
@@ -170,16 +165,6 @@
 		18CFB9841978BBD600A37754 /* HMEmotionTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CFB9831978BBD600A37754 /* HMEmotionTextView.m */; };
 		18D9F79E196E6CA7004B0D1F /* HMTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D9F79D196E6CA7004B0D1F /* HMTextView.m */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		183E90631964EC700014BF21 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 183E90351964EC6F0014BF21 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 183E903C1964EC6F0014BF21;
-			remoteInfo = "黑马微博";
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		1811B1DE197DF4600075AA55 /* HMBaseToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMBaseToolbar.h; sourceTree = "<group>"; };
@@ -339,19 +324,15 @@
 		183988171977770100D9EFBB /* HMEmotionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMEmotionView.h; sourceTree = "<group>"; };
 		183988181977770100D9EFBB /* HMEmotionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMEmotionView.m; sourceTree = "<group>"; };
 		1839881A197779D900D9EFBB /* window.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = window.xml; sourceTree = "<group>"; };
-		183E903D1964EC6F0014BF21 /* 黑马微博.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "黑马微博.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		183E903D1964EC6F0014BF21 /* 微博.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "微博.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		183E90401964EC6F0014BF21 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		183E90421964EC6F0014BF21 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		183E90441964EC6F0014BF21 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		183E90481964EC6F0014BF21 /* 黑马微博-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "黑马微博-Info.plist"; sourceTree = "<group>"; };
+		183E90481964EC6F0014BF21 /* 微博-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "微博-Info.plist"; sourceTree = "<group>"; };
 		183E904A1964EC6F0014BF21 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		183E904E1964EC6F0014BF21 /* 黑马微博-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "黑马微博-Prefix.pch"; sourceTree = "<group>"; };
+		183E904E1964EC6F0014BF21 /* 微博-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "微博-Prefix.pch"; sourceTree = "<group>"; };
 		183E90581964EC6F0014BF21 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		183E905E1964EC700014BF21 /* 黑马微博Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "黑马微博Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		183E905F1964EC700014BF21 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		183E90671964EC700014BF21 /* 黑马微博Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "黑马微博Tests-Info.plist"; sourceTree = "<group>"; };
-		183E90691964EC700014BF21 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		183E906B1964EC700014BF21 /* ____Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "____Tests.m"; sourceTree = "<group>"; };
 		184D3E521973B97C00D3A79E /* 临时.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "临时.h"; sourceTree = "<group>"; };
 		184D3E541973C02A00D3A79E /* HMStatusDetailFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMStatusDetailFrame.h; sourceTree = "<group>"; };
 		184D3E551973C02A00D3A79E /* HMStatusDetailFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMStatusDetailFrame.m; sourceTree = "<group>"; };
@@ -497,16 +478,6 @@
 				183E90431964EC6F0014BF21 /* CoreGraphics.framework in Frameworks */,
 				183E90451964EC6F0014BF21 /* UIKit.framework in Frameworks */,
 				183E90411964EC6F0014BF21 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		183E905B1964EC700014BF21 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				183E90601964EC700014BF21 /* XCTest.framework in Frameworks */,
-				183E90621964EC700014BF21 /* UIKit.framework in Frameworks */,
-				183E90611964EC700014BF21 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -990,8 +961,7 @@
 		183E90341964EC6F0014BF21 = {
 			isa = PBXGroup;
 			children = (
-				183E90461964EC6F0014BF21 /* 黑马微博 */,
-				183E90651964EC700014BF21 /* 黑马微博Tests */,
+				183E90461964EC6F0014BF21 /* 微博 */,
 				183E903F1964EC6F0014BF21 /* Frameworks */,
 				183E903E1964EC6F0014BF21 /* Products */,
 			);
@@ -1000,8 +970,7 @@
 		183E903E1964EC6F0014BF21 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				183E903D1964EC6F0014BF21 /* 黑马微博.app */,
-				183E905E1964EC700014BF21 /* 黑马微博Tests.xctest */,
+				183E903D1964EC6F0014BF21 /* 微博.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1018,12 +987,13 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		183E90461964EC6F0014BF21 /* 黑马微博 */ = {
+		183E90461964EC6F0014BF21 /* 微博 */ = {
 			isa = PBXGroup;
 			children = (
 				182F2CE11965342100512AE6 /* Classes */,
 				183E90471964EC6F0014BF21 /* Supporting Files */,
 			);
+			name = "微博";
 			path = "黑马微博";
 			sourceTree = "<group>";
 		};
@@ -1037,27 +1007,9 @@
 				185AAE58196E8FB300F34301 /* minion_04.png */,
 				185AAE59196E8FB300F34301 /* minion_05.png */,
 				183E90581964EC6F0014BF21 /* Images.xcassets */,
-				183E90481964EC6F0014BF21 /* 黑马微博-Info.plist */,
+				183E90481964EC6F0014BF21 /* 微博-Info.plist */,
 				183E90491964EC6F0014BF21 /* InfoPlist.strings */,
-				183E904E1964EC6F0014BF21 /* 黑马微博-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		183E90651964EC700014BF21 /* 黑马微博Tests */ = {
-			isa = PBXGroup;
-			children = (
-				183E906B1964EC700014BF21 /* ____Tests.m */,
-				183E90661964EC700014BF21 /* Supporting Files */,
-			);
-			path = "黑马微博Tests";
-			sourceTree = "<group>";
-		};
-		183E90661964EC700014BF21 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				183E90671964EC700014BF21 /* 黑马微博Tests-Info.plist */,
-				183E90681964EC700014BF21 /* InfoPlist.strings */,
+				183E904E1964EC6F0014BF21 /* 微博-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -1306,9 +1258,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		183E903C1964EC6F0014BF21 /* 黑马微博 */ = {
+		183E903C1964EC6F0014BF21 /* 微博 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 183E906F1964EC700014BF21 /* Build configuration list for PBXNativeTarget "黑马微博" */;
+			buildConfigurationList = 183E906F1964EC700014BF21 /* Build configuration list for PBXNativeTarget "微博" */;
 			buildPhases = (
 				183E90391964EC6F0014BF21 /* Sources */,
 				183E903A1964EC6F0014BF21 /* Frameworks */,
@@ -1318,28 +1270,10 @@
 			);
 			dependencies = (
 			);
-			name = "黑马微博";
+			name = "微博";
 			productName = "黑马微博";
-			productReference = 183E903D1964EC6F0014BF21 /* 黑马微博.app */;
+			productReference = 183E903D1964EC6F0014BF21 /* 微博.app */;
 			productType = "com.apple.product-type.application";
-		};
-		183E905D1964EC700014BF21 /* 黑马微博Tests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 183E90721964EC700014BF21 /* Build configuration list for PBXNativeTarget "黑马微博Tests" */;
-			buildPhases = (
-				183E905A1964EC700014BF21 /* Sources */,
-				183E905B1964EC700014BF21 /* Frameworks */,
-				183E905C1964EC700014BF21 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				183E90641964EC700014BF21 /* PBXTargetDependency */,
-			);
-			name = "黑马微博Tests";
-			productName = "黑马微博Tests";
-			productReference = 183E905E1964EC700014BF21 /* 黑马微博Tests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -1350,13 +1284,8 @@
 				CLASSPREFIX = HM;
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = heima;
-				TargetAttributes = {
-					183E905D1964EC700014BF21 = {
-						TestTargetID = 183E903C1964EC6F0014BF21;
-					};
-				};
 			};
-			buildConfigurationList = 183E90381964EC6F0014BF21 /* Build configuration list for PBXProject "黑马微博" */;
+			buildConfigurationList = 183E90381964EC6F0014BF21 /* Build configuration list for PBXProject "微博" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -1369,8 +1298,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				183E903C1964EC6F0014BF21 /* 黑马微博 */,
-				183E905D1964EC700014BF21 /* 黑马微博Tests */,
+				183E903C1964EC6F0014BF21 /* 微博 */,
 			);
 		};
 /* End PBXProject section */
@@ -1396,14 +1324,6 @@
 				183E904B1964EC6F0014BF21 /* InfoPlist.strings in Resources */,
 				185AAE5E196E8FB300F34301 /* minion_05.png in Resources */,
 				1811B1F5197E025D0075AA55 /* HMStatusDetailTopToolbar.xib in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		183E905C1964EC700014BF21 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				183E906A1964EC700014BF21 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1554,37 +1474,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		183E905A1964EC700014BF21 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				183E906C1964EC700014BF21 /* ____Tests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		183E90641964EC700014BF21 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 183E903C1964EC6F0014BF21 /* 黑马微博 */;
-			targetProxy = 183E90631964EC700014BF21 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		183E90491964EC6F0014BF21 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				183E904A1964EC6F0014BF21 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		183E90681964EC700014BF21 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				183E90691964EC700014BF21 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -1668,10 +1564,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "黑马微博/黑马微博-Prefix.pch";
-				INFOPLIST_FILE = "黑马微博/黑马微博-Info.plist";
+				GCC_PREFIX_HEADER = "黑马微博/微博-Prefix.pch";
+				INFOPLIST_FILE = "黑马微博/微博-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "微博";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1682,58 +1578,18 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "黑马微博/黑马微博-Prefix.pch";
-				INFOPLIST_FILE = "黑马微博/黑马微博-Info.plist";
+				GCC_PREFIX_HEADER = "黑马微博/微博-Prefix.pch";
+				INFOPLIST_FILE = "黑马微博/微博-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "微博";
 				WRAPPER_EXTENSION = app;
-			};
-			name = Release;
-		};
-		183E90731964EC700014BF21 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/黑马微博.app/黑马微博";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "黑马微博/黑马微博-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "黑马微博Tests/黑马微博Tests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Debug;
-		};
-		183E90741964EC700014BF21 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/黑马微博.app/黑马微博";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "黑马微博/黑马微博-Prefix.pch";
-				INFOPLIST_FILE = "黑马微博Tests/黑马微博Tests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		183E90381964EC6F0014BF21 /* Build configuration list for PBXProject "黑马微博" */ = {
+		183E90381964EC6F0014BF21 /* Build configuration list for PBXProject "微博" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				183E906D1964EC700014BF21 /* Debug */,
@@ -1742,20 +1598,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		183E906F1964EC700014BF21 /* Build configuration list for PBXNativeTarget "黑马微博" */ = {
+		183E906F1964EC700014BF21 /* Build configuration list for PBXNativeTarget "微博" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				183E90701964EC700014BF21 /* Debug */,
 				183E90711964EC700014BF21 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		183E90721964EC700014BF21 /* Build configuration list for PBXNativeTarget "黑马微博Tests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				183E90731964EC700014BF21 /* Debug */,
-				183E90741964EC700014BF21 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
