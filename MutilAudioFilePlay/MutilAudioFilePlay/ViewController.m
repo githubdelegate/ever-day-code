@@ -17,6 +17,8 @@
 @property (weak, nonatomic) IBOutlet UIProgressView *bgVolume;
 @property (weak, nonatomic) IBOutlet UIProgressView *volumeProgressView;
 @property (weak, nonatomic) IBOutlet UIButton *btn;
+@property (weak, nonatomic) IBOutlet UISlider *bgSlider;
+@property (weak, nonatomic) IBOutlet UISlider *effectSlider;
 
 
 @property (nonatomic, retain) CMOpenALSoundManager *soundMgr;
@@ -27,6 +29,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *pauseBtn;
 
 @property (nonatomic,strong) ALPlay *player;
+
+@property (nonatomic,strong) ALPlay *anthorPlayer;
 
 @end
 
@@ -46,6 +50,9 @@
 
 
     self.player = [[ALPlay alloc]initWithSoundFile:@"main.mp3" doesLoop:NO];
+    self.anthorPlayer = [[ALPlay alloc]initWithSoundFile:@"effect.mp3" doesLoop:NO];
+
+    [self.anthorPlayer playWithOffset:0.3];
 }
 
 - (void)setupAudioFile
@@ -64,23 +71,36 @@ static int i = 1;
    [self.soundMgr playSoundWithID:0];
 }
 
-- (IBAction)pauseBtnClick:(id)sender {
+- (IBAction)pauseBtnClick:(id)sender
+{
     i  = i > 0  ? 0 : 1 ;
 
     if (!i) {
 //        [self.soundMgr pauseBackgroundMusic];
 //        [self.soundMgr pauseSoundWithID:0];
-        [self.player pause];
+//        [self.player pause];
+        [self.anthorPlayer pause];
+
     }
     else
     {
 //        [self.soundMgr resumeBackgroundMusic];
 //        [self.soundMgr playSoundWithID:0];
-        [self.player play];
+        [self.anthorPlayer resume];
+//        [self.anthorPlayer playWithOffset:0.5];
+//        [self.anthorPlayer play];
     }
-
-
 }
+
+- (IBAction)bgVolumeEdit:(id)sender {
+
+    [self.player setVolume:((UISlider *)sender).value];
+}
+- (IBAction)effectVolumeChange:(id)sender {
+
+    [self.anthorPlayer setVolume:((UISlider *)sender).value];
+}
+
 
 - (IBAction)btn:(id)sender {
 

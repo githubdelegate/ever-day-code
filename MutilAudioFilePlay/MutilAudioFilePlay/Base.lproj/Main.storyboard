@@ -26,13 +26,7 @@
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="EVz-Uu-PrQ" userLabel="背景音量">
                                 <rect key="frame" x="0.0" y="-2" width="150" height="2"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="125" y="204" width="150" height="2"/>
-                                </variation>
-                            </progressView>
-                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Fon-lz-nUz" userLabel="音量">
-                                <rect key="frame" x="0.0" y="-2" width="150" height="2"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="125" y="304" width="150" height="2"/>
+                                    <rect key="frame" x="123" y="150" width="150" height="2"/>
                                 </variation>
                             </progressView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wKf-Ju-AKB">
@@ -72,41 +66,62 @@
                                     <action selector="pauseBtnClick:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Gqw-od-aL4"/>
                                 </connections>
                             </button>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="stN-be-899">
+                                <rect key="frame" x="0.0" y="-15" width="118" height="31"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="121" y="310" width="159" height="31"/>
+                                </variation>
+                                <connections>
+                                    <action selector="effectVolumeChange:" destination="vXZ-lx-hvc" eventType="valueChanged" id="bYU-Bw-ASz"/>
+                                </connections>
+                            </slider>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Ml4-n4-gxJ">
+                                <rect key="frame" x="0.0" y="-15" width="118" height="31"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="123" y="221" width="154" height="31"/>
+                                </variation>
+                                <connections>
+                                    <action selector="bgVolumeEdit:" destination="vXZ-lx-hvc" eventType="valueChanged" id="fRm-uy-CsN"/>
+                                </connections>
+                            </slider>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="TnK-0E-Aio"/>
                                 <exclude reference="EVz-Uu-PrQ"/>
-                                <exclude reference="Fon-lz-nUz"/>
                                 <exclude reference="wKf-Ju-AKB"/>
                                 <exclude reference="48G-0T-Q9W"/>
                                 <exclude reference="I8g-hL-77u"/>
+                                <exclude reference="stN-be-899"/>
+                                <exclude reference="Ml4-n4-gxJ"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="TnK-0E-Aio"/>
                                 <include reference="EVz-Uu-PrQ"/>
-                                <include reference="Fon-lz-nUz"/>
                                 <include reference="wKf-Ju-AKB"/>
                                 <include reference="48G-0T-Q9W"/>
                                 <include reference="I8g-hL-77u"/>
+                                <include reference="stN-be-899"/>
+                                <include reference="Ml4-n4-gxJ"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="bgSlider" destination="Ml4-n4-gxJ" id="04b-pW-hJd"/>
                         <outlet property="bgVolume" destination="EVz-Uu-PrQ" id="Uy4-T2-PkE"/>
                         <outlet property="btn" destination="wKf-Ju-AKB" id="CXB-yk-F0q"/>
+                        <outlet property="effectSlider" destination="stN-be-899" id="r28-wj-Gh8"/>
                         <outlet property="pauseBtn" destination="I8g-hL-77u" id="woG-C9-cvu"/>
                         <outlet property="timeLabel" destination="48G-0T-Q9W" id="zv2-Rq-XPv"/>
                         <outlet property="timeProgressView" destination="TnK-0E-Aio" id="AmE-NW-JSw"/>
-                        <outlet property="volumeProgressView" destination="Fon-lz-nUz" id="H1G-he-EXm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="306" y="406"/>
+            <point key="canvasLocation" x="63" y="455"/>
         </scene>
     </scenes>
 </document>
