@@ -22,4 +22,7 @@
  *  @return 音频文件播放长度
  */
 + (double)getAudioDurationWithFileName:(NSURL *)fileUrl;
+
+
++ (NSString *)getErrorMeessge:(int)errorCode;
 @end

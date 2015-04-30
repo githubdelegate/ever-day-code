@@ -114,9 +114,9 @@
 		debug(@"file: %@ not found.", fileName);
 		return NO;
 	}
-	
+    int status;
 	// get audio data from file
-	bufferData = MyGetOpenALAudioData(fileURL, &size, &format, &freq, &duration);
+	bufferData = MyGetOpenALAudioData(fileURL, &size, &format, &freq, &duration,&status);
     NSLog(@"duration=%f",duration);
 
 	CFRelease(fileURL);		

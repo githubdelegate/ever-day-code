@@ -63,7 +63,7 @@ ALvoid  alBufferDataStaticProc(const ALint bid, ALenum format, ALvoid* data, ALs
     return;
 }
 
-void* MyGetOpenALAudioData(CFURLRef inFileURL, ALsizei *outDataSize, ALenum *outDataFormat, ALsizei *outSampleRate, ALdouble *duration)
+void* MyGetOpenALAudioData(CFURLRef inFileURL, ALsizei *outDataSize, ALenum *outDataFormat, ALsizei *outSampleRate, ALdouble *duration,int *openStatus)
 {
 	OSStatus						err = noErr;	
 	SInt64							theFileLengthInFrames = 0;
@@ -73,9 +73,16 @@ void* MyGetOpenALAudioData(CFURLRef inFileURL, ALsizei *outDataSize, ALenum *out
 	void*							theData = NULL;
 	AudioStreamBasicDescription		theOutputFormat;
 
+     openStatus = 0;
 	// Open a file with ExtAudioFileOpen()
 	err = ExtAudioFileOpenURL(inFileURL, &extRef);
-	if(err) { printf("MyGetOpenALAudioData: ExtAudioFileOpenURL FAILED, Error = %ld\n", err); goto Exit; }
+	if(err)
+    {
+        printf("MyGetOpenALAudioData: ExtAudioFileOpenURL FAILED, Error = %ld\n", err);
+        openStatus = -1;
+        goto Exit;
+    }
+
 	
 	// Get the audio data format
 	err = ExtAudioFileGetProperty(extRef, kExtAudioFileProperty_FileDataFormat, &thePropertySize, &theFileFormat);
@@ -96,12 +103,16 @@ void* MyGetOpenALAudioData(CFURLRef inFileURL, ALsizei *outDataSize, ALenum *out
 	
 	// Set the desired client (output) data format
 	err = ExtAudioFileSetProperty(extRef, kExtAudioFileProperty_ClientDataFormat, sizeof(theOutputFormat), &theOutputFormat);
-	if(err) { printf("MyGetOpenALAudioData: ExtAudioFileSetProperty(kExtAudioFileProperty_ClientDataFormat) FAILED, Error = %ld\n", err); goto Exit; }
+	if(err)
+    {
+        openStatus = -2;
+        printf("MyGetOpenALAudioData: ExtAudioFileSetProperty(kExtAudioFileProperty_ClientDataFormat) FAILED, Error = %ld\n", err); goto Exit;
+    }
 
 	// Get the total frame count
 	thePropertySize = sizeof(theFileLengthInFrames);
 	err = ExtAudioFileGetProperty(extRef, kExtAudioFileProperty_FileLengthFrames, &thePropertySize, &theFileLengthInFrames);
-	if(err) { printf("MyGetOpenALAudioData: ExtAudioFileGetProperty(kExtAudioFileProperty_FileLengthFrames) FAILED, Error = %ld\n", err); goto Exit; }
+	if(err) { openStatus = -3; printf("MyGetOpenALAudioData: ExtAudioFileGetProperty(kExtAudioFileProperty_FileLengthFrames) FAILED, Error = %ld\n", err); goto Exit; }
 	
 	// Read all the data into memory
 	UInt32	dataSize = theFileLengthInFrames * theOutputFormat.mBytesPerFrame;
@@ -124,7 +135,8 @@ void* MyGetOpenALAudioData(CFURLRef inFileURL, ALsizei *outDataSize, ALenum *out
 			*outSampleRate = (ALsizei)theOutputFormat.mSampleRate;
 		}
 		else 
-		{ 
+		{
+             openStatus = -4;
 			// failure
 			free (theData);
 			theData = NULL; // make sure to return NULL
@@ -137,13 +149,13 @@ void* MyGetOpenALAudioData(CFURLRef inFileURL, ALsizei *outDataSize, ALenum *out
 	AudioFileID audioID;
 	UInt32 audioIDSize = sizeof(audioID);
 	err = ExtAudioFileGetProperty(extRef, kExtAudioFileProperty_AudioFile, &audioIDSize, &audioID);
-	if(err) { printf("MyGetOpenALAudioData: ExtAudioFileGetProperty(kExtAudioFileProperty_AudioFile) FAILED, Error = %ld\n", err); goto Exit; }
+	if(err) {  openStatus = -5; printf("MyGetOpenALAudioData: ExtAudioFileGetProperty(kExtAudioFileProperty_AudioFile) FAILED, Error = %ld\n", err); goto Exit; }
 	
 	//now the duration...
 	double soundDuration;
 	UInt32 durationSize = sizeof(soundDuration);
 	err = AudioFileGetProperty(audioID, kAudioFilePropertyEstimatedDuration, &durationSize, &soundDuration);
-	if(err) { printf("MyGetOpenALAudioData: AudioFileGetProperty(kAudioFilePropertyEstimatedDuration) FAILED, Error = %ld\n", err); goto Exit; }
+	if(err) { openStatus = -6;  printf("MyGetOpenALAudioData: AudioFileGetProperty(kAudioFilePropertyEstimatedDuration) FAILED, Error = %ld\n", err); goto Exit; }
 	
 	*duration = soundDuration;
 	printf("Audio duration:%f secs.\n", soundDuration);	

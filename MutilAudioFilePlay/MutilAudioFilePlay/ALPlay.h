@@ -11,19 +11,39 @@
 #import <OpenAL/alc.h>
 
 typedef enum {
-    ALPlayStatus_Inital,
-    ALPlayStatus_Playing,
-    ALPlayStatus_Paused,
-    ALPlayStatus_Stoped
+    ALPlayStatus_Inital = 0,//0
+    ALPlayStatus_Playing,   //1
+    ALPlayStatus_Paused,    //2
+    ALPlayStatus_Stoped     //3
 }ALPlayStatus;
 
+@class ALPlay;
+@protocol  ALPlayDelegate <NSObject>
+/*!
+ *
+ *  @brief  播放完成回调
+ *
+ *  @param player
+ */
+- (void)playStop:(ALPlay *)player;
+
+/*!
+ *
+ *  @brief  出错回调
+ */
+- (void)onEnd:(NSError *)error;
+
+@end
+
 @interface ALPlay : NSObject
+
+@property (nonatomic,weak) id<ALPlayDelegate> delegate;
 
 /*!
  *  @author usc_zy, 15-04-29 15:04:23
  *
  *  @brief  根据文件名加载音频文件
- *   注意：根据文件名拼接document文件夹路径，去加载文件。
+ *  注意：根据文件名拼接document文件夹路径，去加载文件。
  *  @param file  文件名
  *  @param loops 是否循环播放
  *
@@ -35,50 +55,51 @@ typedef enum {
  *  @brief  播放
  *
  */
-- (BOOL) play;
+- (BOOL)play;
 
+/*!
+ *
+ *  @brief  跳到指定的offset播放
+ *
+ *  @param offset offset
+ *
+ *  @return 
+ */
+- (BOOL)setOffset:(float)offset;
 /*!
  *
  *  @brief  停止播放
  *
  */
-- (BOOL) stop;
+- (BOOL)stop;
 
 /*!
  *
  *  @brief  暂停播放
  *
  */
-- (BOOL) pause;
+- (BOOL)pause;
 
 /*!
  *
  *  @brief  恢复播放
  *
  */
-- (BOOL) resume;
+- (BOOL)resume;
 
 /*!
  *
  *  @brief  重新开始播放
  *
  */
-- (BOOL) rewind;
+- (BOOL)rewind;
 
 /*!
  *
  *  @brief  是否正在播放
  *
  */
-- (BOOL) isPlaying;
-/*!
- *
- *  @brief  跳到指定比例内容播放
- *
- *  @param offset 0-1
- *
- */
-- (BOOL)playWithOffset:(float)offset;
+- (BOOL)isPlaying;
 
 /*!
  *

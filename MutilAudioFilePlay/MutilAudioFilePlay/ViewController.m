@@ -10,7 +10,7 @@
 #import "CMOpenALSoundManager.h"
 #import "ALPlay.h"
 
-@interface ViewController ()
+@interface ViewController ()<ALPlayDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 @property (weak, nonatomic) IBOutlet UIProgressView *timeProgressView;
@@ -19,7 +19,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *btn;
 @property (weak, nonatomic) IBOutlet UISlider *bgSlider;
 @property (weak, nonatomic) IBOutlet UISlider *effectSlider;
-
 
 @property (nonatomic, retain) CMOpenALSoundManager *soundMgr;
 @property (nonatomic,strong) NSTimer *timer;
@@ -48,11 +47,22 @@
 
 //    [self.soundMgr playSoundWithID:0];
 
+//    [self.bgSlider addTarget:self action:@selector(bgSliderMove:) forControlEvents:UIControlEventEditingDidEnd];
+
 
     self.player = [[ALPlay alloc]initWithSoundFile:@"main.mp3" doesLoop:NO];
     self.anthorPlayer = [[ALPlay alloc]initWithSoundFile:@"effect.mp3" doesLoop:NO];
+    self.player.delegate = self;
+    self.anthorPlayer.delegate = self;
 
-    [self.anthorPlayer playWithOffset:0.3];
+    [self.anthorPlayer play];
+//    [self.player playWithOffset:0.4];
+}
+
+- (void)bgSliderMove:(id)sender
+{
+   NSLog(@"slider value =%f",((UISlider *)sender).value);
+
 }
 
 - (void)setupAudioFile
@@ -94,20 +104,16 @@ static int i = 1;
 
 - (IBAction)bgVolumeEdit:(id)sender {
 
-    [self.player setVolume:((UISlider *)sender).value];
+    [self.anthorPlayer playWithOffset:0.6];
 }
 - (IBAction)effectVolumeChange:(id)sender {
 
     [self.anthorPlayer setVolume:((UISlider *)sender).value];
 }
 
-
 - (IBAction)btn:(id)sender {
 
-//    self.timer = [NSTimer scheduledTimerWithTimeInterval:[self shortDurationWithFile:nil andFile:nil] target:self selector:@selector(stopMutiPlay) userInfo:nil repeats:NO];
-
-    [self.soundMgr playBackgroundMusic:self.bgUrl];
-    [self.soundMgr playSoundWithID:0];
+    [self.anthorPlayer setOffset:0.5];
 }
 
 - (BOOL)stopMutiPlay
@@ -118,6 +124,19 @@ static int i = 1;
     [self.timer invalidate];
     self.timer =  nil;
     return YES;
+}
+
+- (void)playStop:(id)player
+{
+
+    NSLog(@"终于播放停止了=%d--%@",[player getSourceStatus],[NSThread currentThread]);
+    [self.anthorPlayer stop];
+    [self.player stop];
+}
+
+- (void)onEnd:(NSError *)error
+{
+    NSLog(@"error:%@",error.domain);
 }
 
 @end
