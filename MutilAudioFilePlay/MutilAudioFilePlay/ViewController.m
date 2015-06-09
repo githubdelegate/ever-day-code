@@ -7,7 +7,6 @@
 //
 
 #import "ViewController.h"
-#import "CMOpenALSoundManager.h"
 #import "ALPlay.h"
 
 @interface ViewController ()<ALPlayDelegate>
@@ -20,66 +19,63 @@
 @property (weak, nonatomic) IBOutlet UISlider *bgSlider;
 @property (weak, nonatomic) IBOutlet UISlider *effectSlider;
 
-@property (nonatomic, retain) CMOpenALSoundManager *soundMgr;
 @property (nonatomic,strong) NSTimer *timer;
 
 @property (nonatomic,strong) NSURL *bgUrl;
 @property (nonatomic,strong) NSURL *url;
 @property (weak, nonatomic) IBOutlet UIButton *pauseBtn;
 
+// 播放两个音频文件，创建两个播放器
 @property (nonatomic,strong) ALPlay *player;
-
 @property (nonatomic,strong) ALPlay *anthorPlayer;
 
 @end
 
 @implementation ViewController
 
+- (IBAction)offsetSet:(id)sender {
+    
+    NSLog(@"slider value =%f",((UISlider *)sender).value);
+    [self.player setOffset:((UISlider *)sender).value];
+    [self.player setOffset:((UISlider *)sender).value];
+}
+
+- (IBAction)stopPlay:(id)sender {
+    
+    [self.player stop];
+    [self.anthorPlayer stop];
+}
+
 - (void)viewDidLoad {
 
     [super viewDidLoad];
 
-    self.soundMgr = [[CMOpenALSoundManager alloc] init];
-//    self.soundMgr.soundFileNames =  [NSArray arrayWithObjects:@"main.mp3",@"effect.mp3",nil];
-
-
-//    [self setupAudioFile];
-
-//    [self.soundMgr playSoundWithID:0];
-
-//    [self.bgSlider addTarget:self action:@selector(bgSliderMove:) forControlEvents:UIControlEventEditingDidEnd];
-
-
-    self.player = [[ALPlay alloc]initWithSoundFile:@"main.mp3" doesLoop:NO];
+//    self.player = [[ALPlay alloc]initWithSoundFile:@"main.mp3" doesLoop:NO];
     self.anthorPlayer = [[ALPlay alloc]initWithSoundFile:@"effect.mp3" doesLoop:NO];
-    self.player.delegate = self;
+//    self.player.delegate = self;
     self.anthorPlayer.delegate = self;
 
+    // 播放
+//    [self.player play];
     [self.anthorPlayer play];
-//    [self.player playWithOffset:0.4];
 }
 
-- (void)bgSliderMove:(id)sender
-{
-   NSLog(@"slider value =%f",((UISlider *)sender).value);
-
-}
+//- (void)bgSliderMove:(id)sender
+//{
+//    NSLog(@"slider value =%f",((UISlider *)sender).value);
+//    [self.player setOffset:((UISlider *)sender).value];
+//    [self.player setOffset:((UISlider *)sender).value];
+//}
 
 - (void)setupAudioFile
 {
    NSString *document = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES) lastObject];
-   self.soundMgr.soundFileNames = [NSArray arrayWithObjects:@"main.mp3",@"effect.mp3",@"bgMusic.mp3",nil];
 
     self.bgUrl = [NSURL URLWithString:[document stringByAppendingPathComponent:@"bgMusic.mp3"]];
     self.url = [NSURL URLWithString:[document stringByAppendingPathComponent:@"main.mp3"]];
 }
 
 static int i = 1;
-
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-{
-   [self.soundMgr playSoundWithID:0];
-}
 
 - (IBAction)pauseBtnClick:(id)sender
 {
@@ -102,10 +98,7 @@ static int i = 1;
     }
 }
 
-- (IBAction)bgVolumeEdit:(id)sender {
 
-    [self.anthorPlayer playWithOffset:0.6];
-}
 - (IBAction)effectVolumeChange:(id)sender {
 
     [self.anthorPlayer setVolume:((UISlider *)sender).value];

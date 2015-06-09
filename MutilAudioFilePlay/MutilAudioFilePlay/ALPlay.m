@@ -50,6 +50,7 @@
     return self;
 }
 
+// 加载音频文件
 - (void)loadFile
 {
     ALenum  format;
@@ -83,32 +84,6 @@
     alGetSourcei(_sourceID, AL_SOURCE_STATE, &state);
 
     return (state == AL_PLAYING);
-}
-
-- (BOOL)playWithOffset:(float)offset
-{
-//
-//#ifdef USE
-//    [self releaseResource];
-//    [self loadFile];
-//#endif
-//
-
-    ALint iTotal = 0;
-    ALint iCurrent = 0;
-    ALint uiBuffer = 0;
-    alGetSourcei(_sourceID, AL_BUFFER, &uiBuffer);
-    alGetBufferi(uiBuffer, AL_SIZE, &iTotal);
-    iCurrent = iTotal * offset;
-
-    alSourcei(_sourceID, AL_BYTE_OFFSET, iCurrent);
-    alSourcePlay(_sourceID);
-    if (self.timer) {
-        [self.timer invalidate];
-        self.timer = nil;
-    }
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(checkIsStop) userInfo:nil repeats:YES];
-    return ((_error = alGetError()) != AL_NO_ERROR);
 }
 
 - (BOOL)resume
@@ -174,6 +149,7 @@
     else
     {
         alSourcePlay(_sourceID);
+        
         if (self.timer) {
             [self.timer invalidate];
             self.timer = nil;

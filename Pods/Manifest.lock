@@ -1,0 +1,13 @@
+PODS:
+  - Masonry (0.6.1)
+  - ZXing (2.3)
+
+DEPENDENCIES:
+  - Masonry (~> 0.6.1)
+  - ZXing (~> 2.1)
+
+SPEC CHECKSUMS:
+  Masonry: 4972309f2f134de9dd312f4dc4a21359b50e6caa
+  ZXing: 2becd5a04af246acb8d4d4c627fb17a218db9074
+
+COCOAPODS: 0.37.2
